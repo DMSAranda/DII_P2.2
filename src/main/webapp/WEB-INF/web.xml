@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>dam2.dii.p22</param-value>	<!-- AQUI ESTABLECEMOS LA CARPETA DONDE GUARDAMOS LOS SERVICIOS QUE USAMOS -->
+      											<!-- En nuestro caso estamos usando la clase contacto -->
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>							
+    <!--  RUTA RAIZ DEL SERVICIO WEB, desde aqui se pasan las peticiones, para los servicios -->
+    <!--  http://"direccion":"puerto"/"nombre del proyecto"/"ruta raiz"/  -->
+    <!--  http://localhost:8080/DII_P2.2_DAVID_MUNOZ_DEL_SASTRE/webapi/ -->
+  </servlet-mapping>
+</web-app>
